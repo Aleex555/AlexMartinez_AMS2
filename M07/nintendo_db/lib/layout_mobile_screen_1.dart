@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'app_data.dart';
 import 'layout_mobile_screen_2.dart';
-import 'layout_desktop.dart';
 
 class LayoutMobileScreen1 extends StatefulWidget {
   final String seccio;

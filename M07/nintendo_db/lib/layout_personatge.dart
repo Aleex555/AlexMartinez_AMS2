@@ -56,6 +56,8 @@ class LayoutPersonatge extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(itemData['nom_del_videojoc']),
+                const SizedBox(height: 10),
+                Text(itemData['color']),
               ],
             ),
           ),

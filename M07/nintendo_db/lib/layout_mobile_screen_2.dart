@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'app_data.dart';
 import 'layout_personatge.dart';
 import 'layout_consola.dart';
+import 'layout_joc.dart';
 
 class LayoutMobileScreen2 extends StatefulWidget {
   final String seccio;
@@ -50,6 +51,8 @@ class _StateLayoutMobileScreen2 extends State<LayoutMobileScreen2> {
         return LayoutPersonatge(itemData: itemData);
       case 'Consoles':
         return LayoutConsola(itemData: itemData);
+      case 'Jocs':
+        return LayoutJoc(itemData: itemData);
     }
     return Text('Unknown layout: ${widget.seccio}');
   }

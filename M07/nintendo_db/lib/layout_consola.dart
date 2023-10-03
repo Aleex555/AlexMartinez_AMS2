@@ -51,7 +51,7 @@ class LayoutConsola extends StatelessWidget {
                   color: getColorFromString(itemData['color']),
                 ),
                 const SizedBox(height: 10),
-                Text(itemData['nom_de_la_consola']),
+                Text(itemData['procesador']),
               ],
             ),
           ),

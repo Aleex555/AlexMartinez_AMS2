@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'layout_personatge.dart';
 import 'app_data.dart';
 import 'layout_consola.dart';
+import 'layout_joc.dart';
 
 List<String> dropDownList = <String>['Personatges', 'Jocs', 'Consoles'];
 
@@ -86,6 +87,8 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
           return LayoutPersonatge(itemData: itemData);
         case 'Consoles':
           return LayoutConsola(itemData: itemData);
+        case 'Jocs':
+          return LayoutJoc(itemData: itemData);
       }
     }
     return const Text("");

@@ -5,39 +5,38 @@ public class CalculoEstadisticas {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String opc = "";
+        int numeros=0;
         Formulas formulas = new Formulas();
         ArrayList<Integer> lista = new ArrayList<Integer>();
-        lista.add(192);
-        lista.add(180);
-        lista.add(190);
-        lista.add(189);
-        lista.add(170);
-        lista.add(167);
-        lista.add(174);
-        lista.add(175);
-        lista.add(175);
-        lista.add(169);
-        lista.add(169);
-        lista.add(185);
-        lista.add(172);
-        lista.add(170);
-        lista.add(186);
-        lista.add(168);
-        lista.add(174);
-        lista.add(170);
-
         while (!opc.equals("0")) {
-            System.out.println("Menu Principal\n1 - Media\n2 - Varianza\n3 - Desviación\n0 - Salir");
+            System.out.println("Menu Principal\n1 - Introducir Datos\n2 - Media\n3 - Varianza\n4 - Desviación\n0- Salir");
             System.out.print("Ingrese una opcion: ");
             opc = sc.nextLine();
             switch (opc) {
                 case "1":
-                    System.out.println("La media es de: " + formulas.Media(lista));
+                    do{
+                        numeros=1;
+                        System.out.print("Escribe las alturas en cm: ");
+                        System.out.print("Añade el valor de la altura en cm: ");
+                        lista.add(sc.nextInt());
+                        System.out.print("Para seguir introduciendo datos pulsa 1 y para salir cualquier otro numero: ");
+                        numeros=sc.nextInt();
+                        if(numeros!=1){
+                            sc.nextLine();
+                            numeros=0;
+                        }else{
+                            sc.nextLine();
+                            numeros=1;
+                        }
+                    }while(numeros==1);
                     break;
                 case "2":
-                    System.out.println("La varianza es de: " + formulas.Varianza(lista));
+                    System.out.println("La media es de: " + formulas.Media(lista));
                     break;
                 case "3":
+                    System.out.println("La varianza es de: " + formulas.Varianza(lista));
+                    break;
+                case "4":
                     System.out.println("La desviación es de: " + formulas.Desviacion(lista));
                     break;
                 case "0":
@@ -48,6 +47,6 @@ public class CalculoEstadisticas {
                     break;
             }
         }
-
+        sc.close();
     }
 }
