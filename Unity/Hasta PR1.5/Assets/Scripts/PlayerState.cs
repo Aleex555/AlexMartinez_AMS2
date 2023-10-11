@@ -6,20 +6,20 @@ public class PlayerState : MonoBehaviour
 {
     Animator animator;
     public float speed = 0.3f;
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     private SpriteRenderer flip1;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         flip1 = GetComponent<SpriteRenderer>();
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){   
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector2 direction = new Vector2(horizontalInput, verticalInput);
@@ -42,7 +42,7 @@ public class PlayerState : MonoBehaviour
             animator.SetBool("isJumping",false);
         }
         if(verticalInput<0){
-            animator.SetBool("isCrouching",true);
+            animator.SetBool("isCrouching",true);   
         }else{
             animator.SetBool("isCrouching",false);
         }
