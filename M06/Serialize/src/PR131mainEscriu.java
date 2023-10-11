@@ -13,16 +13,16 @@ public class PR131mainEscriu {
         PR131hashmap pr131HashMap = new PR131hashmap();
         // Crear la carpeta 'data' si no existeix
         File dir = new File(basePath);
-        if (!dir.exists()){
-            if(!dir.mkdirs()) {
+        if (!dir.exists()) {
+            if (!dir.mkdirs()) {
                 System.out.println("Error en la creació de la carpeta 'data'");
             }
         }
 
         System.out.println("");
         try {
-			FileOutputStream fos = new FileOutputStream(filePath);
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
+            FileOutputStream fos = new FileOutputStream(filePath);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             pr131HashMap.getHashMap().put("Hola", 24);
             pr131HashMap.getHashMap().put("Fortinite", 45);
@@ -33,19 +33,21 @@ public class PR131mainEscriu {
             oos.writeObject(pr131HashMap);
             oos.close();
 
-		} catch (IOException e) { e.printStackTrace(); }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
-class PR131hashmap implements Serializable{
+class PR131hashmap implements Serializable {
 
-        private HashMap<String,Integer> hash;
+    private HashMap<String, Integer> hash;
 
-        public PR131hashmap() {
-            hash= new HashMap<>();
-        }
-    
-        public HashMap<String, Integer> getHashMap() {
-            return hash;
-        }
+    public PR131hashmap() {
+        hash = new HashMap<>();
     }
+
+    public HashMap<String, Integer> getHashMap() {
+        return hash;
+    }
+}
