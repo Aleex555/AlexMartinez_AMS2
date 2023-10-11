@@ -2,8 +2,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.util.HashMap;
 
 public class PR131mainEscriu {
 
@@ -36,18 +34,5 @@ public class PR131mainEscriu {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-}
-
-class PR131hashmap implements Serializable {
-
-    private HashMap<String, Integer> hash;
-
-    public PR131hashmap() {
-        hash = new HashMap<>();
-    }
-
-    public HashMap<String, Integer> getHashMap() {
-        return hash;
     }
 }
