@@ -14,6 +14,7 @@ public class Main {
       menu = menu + "\n 2) PR131mainLlegeix";
       menu = menu + "\n 3) PR132main";
       menu = menu + "\n 4) PR133mainTreballadors";
+      menu = menu + "\n 5) Estudiantes";
       // Adapta aquí les altres classes de l’exercici (PR122cat…)
       menu = menu + "\n 100) Sortir";
       System.out.println(menu);
@@ -36,7 +37,9 @@ public class Main {
           case 4:
             PR133mainTreballadors.main(args);
             break;
-          // Adapta aquí les altres classes de l’exercici (PR122cat…)
+          case 5:
+            Estudiantes.main(args);
+            break;
           case 100:
             running = false;
             break;

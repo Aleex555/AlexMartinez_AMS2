@@ -27,6 +27,7 @@ public class PR133mainTreballadors {
 
             System.out.print("Escribe el nuevo dato de la columna " + columna + " : ");
             String nuevoDato = sc.nextLine();
+
             UtilsCSV.update(csv, numLinia, columna, nuevoDato);
             UtilsCSV.write(filePath, csv);
 
