@@ -7,12 +7,13 @@ public class PlayerState : MonoBehaviour
     Animator animator;
     public LayerMask Ground;
     public float castDistance;
-    public float airFriction = 3.0f;
-    public float groundFriction = 3.0f;
-    public float speed = 0.3f;
+    public float airFriction = 1.0f;
+    public float groundFriction = 1.0f;
+    public float speed = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer flip1;
     public Vector2 boxSize;
+    public bool isJumping;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,20 +34,21 @@ public class PlayerState : MonoBehaviour
         if (horizontalInput > 0)
         {
             flip1.flipX = false;
-            rb.AddForce(new Vector2(1000f*Time.deltaTime,0));
+            rb.AddForce(new Vector2(speed*Time.deltaTime,0));
             animator.SetBool("Walking", true);
         }
         else if (horizontalInput<0)
         {   flip1.flipX = true;
-            rb.AddForce(new Vector2(-1000f*Time.deltaTime,0));
+            rb.AddForce(new Vector2(-speed*Time.deltaTime,0));
             animator.SetBool("Walking", true);
         }else{
             animator.SetBool("Walking",false);
         }
-        if (verticalInput>0)
+        if (verticalInput > 0 && isJumping)
         {
-            rb.AddForce(new Vector2(0,1000f*Time.deltaTime));
-            animator.SetBool("isJumping",true);
+            rb.velocity = new Vector2(rb.velocity.x, 10f);
+            animator.SetBool("isJumping", true);
+            isJumping = true;
         }else{
             animator.SetBool("isJumping",false);
         }
@@ -62,6 +64,17 @@ public class PlayerState : MonoBehaviour
     {
         float friction = isGrounded() ? groundFriction : airFriction;
         rb.velocity = new Vector2(rb.velocity.x * (1 - friction * Time.deltaTime), rb.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.transform.tag == "Ground"){
+            isJumping=true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision){
+        if(collision.transform.tag == "Ground"){
+            isJumping=false;
+        }
     }
 
     public bool isGrounded()
